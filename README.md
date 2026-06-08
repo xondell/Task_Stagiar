@@ -1,91 +1,36 @@
-# Task_Stagiar
-Taskul de proba pentru stagiari, candidati la stagiu. 
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-# Sarcină de probă — Aplicație de tehnoredactare automată a actelor juridice
+## Getting Started
 
-## Despre această sarcină
+First, run the development server:
 
-Aceasta este o sarcină de probă pentru candidații la stagiu. Scopul este să realizați o
-aplicație care **tehnoredactează automat acte juridice conform normelor de redactare**:
-utilizatorul alege tipul de act, introduce conținutul, iar la final primește **documentul
-complet formatat** — gata de tipărit/depus, nu o simplă listă de pași.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-### Reguli de organizare a lucrului
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- Fiecare candidat **își face propriul proiect** într-un **branch separat, pe care îl creează
-  manual** (de ex. `nume-prenume` sau `stagiar-nume`). Nu lucrați pe `main`/`master`.
-- **Tehnologiile și condițiile le alegeți voi** — folosiți ce vă este comod și ce stăpâniți
-  cel mai bine. Nu există stack impus.
-- Proiectul trebuie să conțină **frontend**, **backend** și **bază de date**.
-- **Aveți voie să adăugați idei proprii** dacă vă vin — funcționalități, îmbunătățiri,
-  optimizări. Inițiativa este apreciată.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### Termen limită
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- **Până pe data de 8** (inclusiv).
-- Timp de lucru: **5 zile calendaristice**.
+## Learn More
 
----
+To learn more about Next.js, take a look at the following resources:
 
-## Obiectiv
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Realizați o aplicație care permite unui jurist să genereze acte juridice **tehnoredactate
-corect, conform normelor de redactare**, pornind de la conținutul introdus. Rezultatul final
-trebuie să fie **documentul complet formatat**, nu o descriere a pașilor.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Fluxul de bază (obligatoriu)
+## Deploy on Vercel
 
-1. **Selectarea tipului de act** dintr-o listă (minimum 2 tipuri — de exemplu: cerere de
-   chemare în judecată, contract, procură, plângere, decizie, notificare).
-2. **Introducerea conținutului** prin câmpuri structurate (părți, obiect, temei, conținut,
-   dată, semnături) și/sau text liber.
-3. **Generarea automată** a documentului complet tehnoredactat, în care toate regulile de
-   formatare sunt aplicate automat.
-4. **Export** într-un format utilizabil (`.docx` și/sau `.pdf`).
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Norme de tehnoredactare aplicate automat
-
-Aplicația trebuie să respecte un set coerent de reguli (acesta este un baseline tipic —
-aliniați-l la normele oficiale aplicabile):
-
-- Format pagină **A4**, orientare portret.
-- Margini standard (ex. sus/jos 2 cm, stânga 2,5–3 cm pentru îndosariere, dreapta 1,5 cm).
-- Font uniform (ex. **Times New Roman**, 12 pt text / 14 pt titlu), bold doar la titluri.
-- Interlinie 1,5; aliniere **justify** pentru corpul textului.
-- Indentare prima linie a paragrafelor (ex. 1,25 cm).
-- **Numerotare automată** a articolelor / punctelor / alineatelor.
-- Antet/subsol unde e cazul, cu **numerotarea paginilor**.
-- Bloc de semnătură, dată și loc poziționate corect.
-- Diacritice corecte și spațiere uniformă.
-
-**Esențial:** indiferent de tipul de act sau de textul introdus de utilizator, **documentul
-rezultat trebuie să fie conform normelor**, în mod automat.
-
-## Cerințe opționale / bonus
-
-- **Editarea manuală a tehnoredactării** peste rezultatul automat (font, dimensiune,
-  interlinie, margini, aliniere). Aceasta rămâne **opțională** — formatarea de bază trebuie să
-  funcționeze automat.
-- Șabloane reutilizabile și salvarea actelor în baza de date.
-- Validări (câmpuri obligatorii lipsă, date invalide).
-- Mai mult de 2 tipuri de acte.
-- Previzualizare live a documentului.
-
-## Livrabile
-
-- Codul sursă pe **branch-ul propriu**, cu instrucțiuni de rulare (`Explicatie.md`).
-- O demonstrație funcțională (link sau capturi/video).
-- Cel puțin **2 acte-exemplu** generate și exportate.
-
-## Criterii de evaluare
-
-- Corectitudinea tehnoredactării față de norme (**cel mai important**).
-- Funcționarea întregului flux: selectare tip → introducere text → document final.
-- Prezența și integrarea corectă a celor trei componente: frontend, backend, bază de date.
-- Calitatea codului și claritatea structurii.
-- Experiența de utilizare.
-- Implementarea elementelor opționale și a ideilor proprii (bonus).
-
----
-
-*Succes! Pentru orice neclaritate, întrebați înainte de a începe implementarea.*
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
