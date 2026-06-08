@@ -5,8 +5,7 @@ import { useLang } from '@/lib/langContext';
 import { saveDocumentRecord } from '@/lib/actions';
 import { generateContract, generateProcura, generateCerere, generateDecizie, generateNotificare, ContractData, ProcuraData, CerereData, DecizieData, NotificareData } from '@/lib/docGenerator';
 import { saveAs } from 'file-saver';
-import { Loader2, Download, CheckCircle2, FileText } from 'lucide-react';
-import jsPDF from 'jspdf';
+import { Loader2, Download, CheckCircle2 } from 'lucide-react';
 
 interface FormBuilderProps {
   documentType: { id: string; key: string; name: string };
@@ -63,37 +62,12 @@ const formsConfig: Record<string, FieldConfig[]> = {
   ],
 };
 
-type ExportFormat = 'docx' | 'pdf';
-
-async function blobToPdf(blob: Blob, fileName: string) {
-  // Convert docx blob to pdf via jsPDF with raw text extraction
-  const arrayBuffer = await blob.arrayBuffer();
-  const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
-
-  pdf.setFont('times', 'normal');
-  pdf.setFontSize(12);
-
-  // Note: we construct a simple text-based PDF as browser cannot render docx natively
-  // The text content we display is the formatted content description
-  pdf.setFontSize(14);
-  pdf.setFont('times', 'bold');
-  const title = fileName.replace(/_\d+\.docx$/, '').replace(/_/g, ' ');
-  pdf.text(title, 105, 20, { align: 'center' });
-  pdf.setFontSize(10);
-  pdf.setFont('times', 'italic');
-  pdf.text('Documentul PDF a fost generat automat. Versiunea completa cu formatare este disponibila in format .docx.', 105, 30, { align: 'center', maxWidth: 170 });
-
-  const pdfFileName = fileName.replace('.docx', '.pdf');
-  pdf.save(pdfFileName);
-}
-
 export default function FormBuilder({ documentType }: FormBuilderProps) {
   const { lang, t } = useLang();
   const fields = formsConfig[documentType.key] || [];
   const [formData, setFormData] = useState<Record<string, string>>({});
   const [isGenerating, setIsGenerating] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [format, setFormat] = useState<ExportFormat>('docx');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -123,17 +97,13 @@ export default function FormBuilder({ documentType }: FormBuilderProps) {
 
       const fileName = `${documentType.name.replace(/\s+/g, '_')}_${Date.now()}.docx`;
 
-      if (format === 'pdf') {
-        await blobToPdf(blob, fileName);
-      } else {
-        saveAs(blob, fileName);
-      }
+      saveAs(blob, fileName);
 
       // Save record to DB
       await saveDocumentRecord({
         documentTypeId: documentType.id,
         contentData: JSON.stringify(formData),
-        fileName: fileName.replace('.docx', `.${format}`),
+        fileName,
       });
 
       setSuccess(true);
@@ -179,30 +149,7 @@ export default function FormBuilder({ documentType }: FormBuilderProps) {
         ))}
       </div>
 
-      {/* Format selector */}
-      <div className="border-t border-white/10 pt-6 space-y-3">
-        <p className="text-sm font-medium text-neutral-300">{t.formatLabel}</p>
-        <p className="text-xs text-neutral-500">{t.formatHint}</p>
-        <div className="flex gap-4">
-          {(['docx', 'pdf'] as ExportFormat[]).map(f => (
-            <button
-              key={f}
-              type="button"
-              onClick={() => setFormat(f)}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 ${
-                format === f
-                  ? 'bg-lime-500 border-lime-500 text-neutral-950'
-                  : 'bg-transparent border-neutral-700 text-neutral-400 hover:border-lime-500 hover:text-lime-400'
-              }`}
-            >
-              <FileText size={16} />
-              {f.toUpperCase()}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
+      <div className="pt-8 flex flex-col sm:flex-row items-center gap-4">
         <button
           type="submit"
           disabled={isGenerating}
