@@ -1,4 +1,4 @@
-import { Document, Packer, Paragraph, TextRun, AlignmentType, convertInchesToTwip, HeadingLevel } from 'docx';
+import { Document, Packer, Paragraph, TextRun, AlignmentType, convertInchesToTwip, HeadingLevel, Footer, PageNumber } from 'docx';
 
 export interface ContractData {
   partyA: string;
@@ -91,6 +91,22 @@ function createBaseDocument(children: any[]) {
               height: 16838,
             },
           },
+        },
+        footers: {
+          default: new Footer({
+            children: [
+              new Paragraph({
+                alignment: AlignmentType.CENTER,
+                children: [
+                  new TextRun("- "),
+                  new TextRun({
+                    children: [PageNumber.CURRENT],
+                  }),
+                  new TextRun(" -"),
+                ],
+              }),
+            ],
+          }),
         },
         children,
       },
