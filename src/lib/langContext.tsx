@@ -17,6 +17,13 @@ const translations = {
     formatHint: 'Alegeți formatul fișierului descărcat',
     fillForm: 'Completați câmpurile de mai jos pentru a genera automat un document respectând formatul impus.',
     langToggle: 'EN',
+    docTypes: {
+      contract: { name: 'Contract', description: 'Generare contract standard conform prevederilor CC' },
+      procura: { name: 'Procură', description: 'Generare procură de reprezentare' },
+      cerere_chemare: { name: 'Cerere de chemare în judecată', description: 'Generare cerere standard pentru intentarea unei acțiuni civile' },
+      decizie: { name: 'Decizie', description: 'Generare decizie sau hotărâre oficială' },
+      notificare: { name: 'Notificare', description: 'Generare preaviz sau notificare oficială' },
+    } as Record<string, { name: string; description: string }>,
   },
   en: {
     appName: 'LegalAct',
@@ -31,6 +38,13 @@ const translations = {
     formatHint: 'Choose the format of the downloaded file',
     fillForm: 'Fill in the fields below to automatically generate a properly formatted document.',
     langToggle: 'RO',
+    docTypes: {
+      contract: { name: 'Contract', description: 'Generate a standard contract in accordance with civil code provisions' },
+      procura: { name: 'Power of Attorney', description: 'Generate a power of attorney / representation document' },
+      cerere_chemare: { name: 'Statement of Claim', description: 'Generate a standard civil action claim filing document' },
+      decizie: { name: 'Decision / Resolution', description: 'Generate an official decision or ruling document' },
+      notificare: { name: 'Notification / Notice', description: 'Generate an official notice or prior notice document' },
+    } as Record<string, { name: string; description: string }>,
   },
 };
 

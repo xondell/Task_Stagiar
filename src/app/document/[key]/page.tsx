@@ -41,10 +41,10 @@ export default function DocumentPage({ params }: { params: Promise<{ key: string
             <ArrowLeft size={16} /> {t.back}
           </Link>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
-            {docType.name}
+            {t.docTypes[docType.key]?.name ?? docType.name}
           </h1>
           <p className="text-neutral-400 text-lg leading-relaxed">
-            {docType.description}
+            {t.docTypes[docType.key]?.description ?? docType.description}
             <br />
             <span className="text-sm mt-2 block">{t.fillForm}</span>
           </p>

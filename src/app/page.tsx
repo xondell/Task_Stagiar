@@ -39,8 +39,8 @@ export default function Home() {
                 <div className="h-14 w-14 rounded-2xl bg-white/5 flex items-center justify-center text-lime-400 group-hover:scale-110 group-hover:bg-lime-400 group-hover:text-neutral-950 transition-all duration-300 shadow-inner">
                   <FileText strokeWidth={1.5} size={28} />
                 </div>
-                <h3 className="text-2xl font-bold text-white group-hover:text-lime-300 transition-colors">{doc.name}</h3>
-                <p className="text-neutral-400 text-sm flex-grow leading-relaxed">{doc.description}</p>
+                <h3 className="text-2xl font-bold text-white group-hover:text-lime-300 transition-colors">{t.docTypes[doc.key]?.name ?? doc.name}</h3>
+                <p className="text-neutral-400 text-sm flex-grow leading-relaxed">{t.docTypes[doc.key]?.description ?? doc.description}</p>
                 <div className="flex items-center text-lime-400 font-medium text-sm pt-4 uppercase tracking-wider">
                   <span className="flex items-center gap-2 group-hover:translate-x-2 transition-transform duration-300">
                     {t.generate} <ArrowRight size={16} />
