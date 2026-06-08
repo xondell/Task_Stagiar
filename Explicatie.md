@@ -18,7 +18,7 @@ Această aplicație este soluția mea pentru proba tehnică. A fost construită 
    npm install
    ```
 
-3. (Opțional) Resetați baza de date integrată și rulați seed-urile din nou (sunt deja create 3 tipuri):
+3. Genați structura bazei de date și datele de start (seed):
    ```bash
    npx prisma db push
    npx tsx prisma/seed.ts
@@ -31,9 +31,11 @@ Această aplicație este soluția mea pentru proba tehnică. A fost construită 
 
 Aplicația va fi disponibilă la `http://localhost:3000`.
 
-## Funcționalități Implementate
+## Funcționalități Implementate (Inclusiv Bonusuri)
 - **Documente perfect formatate**: Setări adânci de pagină (2cm margini sus/jos, 2.5cm și 1.5cm lateral, font curat Times New Roman 12/14pt, interlinie 1.5, text Justify).
-- **Formulare Dinamice**: Formulare customizate pentru 'Contract', 'Procură', și 'Cerere'.
-- **Bază de Date**: Fiecare tip de act est definit în DB, iar documentele completate se salvează sub formă de record-uri JSON.
-- **Interfață Premium**: Design modern "Lime/Dark" conceput pentru UX rapid.
-- **Exemple pre-generate**: Există 2 fișiere statice generate ca bonus în folderul `exemple`.
+- **Paginare Automată**: Footer generat cu numerotarea paginilor conform normelor.
+- **Formulare Dinamice**: Formulare customizate pentru 5 tipuri de documente: 'Contract', 'Procură', 'Cerere', 'Decizie', 'Notificare'.
+- **Bază de Date**: Fiecare tip de act este definit în DB, iar documentele completate se salvează sub formă de record-uri JSON.
+- **Interfață Bilingvă**: Suport complet pentru Română și Engleză în interfață, configurat local din Navbar.
+- **Interfață Premium Adaptabilă**: Design modern cu suport pentru Dark Mode și Light Mode.
+- **Exemple pre-generate**: Există 2 fișiere statice extrase în folderul `exemple`.
