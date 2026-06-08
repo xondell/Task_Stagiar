@@ -31,7 +31,7 @@ export default function DocumentPage({ params }: { params: Promise<{ key: string
   );
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-lime-500 selection:text-black">
+    <div className="theme-bg min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-lime-500 selection:text-black transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-6 py-12">
         <header className="mb-12 relative">
           <Link
@@ -40,17 +40,17 @@ export default function DocumentPage({ params }: { params: Promise<{ key: string
           >
             <ArrowLeft size={16} /> {t.back}
           </Link>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+          <h1 className="theme-text-main text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
             {t.docTypes[docType.key]?.name ?? docType.name}
           </h1>
-          <p className="text-neutral-400 text-lg leading-relaxed">
+          <p className="theme-text-muted text-neutral-400 text-lg leading-relaxed">
             {t.docTypes[docType.key]?.description ?? docType.description}
             <br />
             <span className="text-sm mt-2 block">{t.fillForm}</span>
           </p>
         </header>
 
-        <main className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+        <main className="theme-panel bg-white/5 border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden backdrop-blur-sm transition-colors duration-300">
           <div className="absolute top-0 right-0 w-64 h-64 bg-lime-500/5 rounded-full blur-3xl -z-10 transform translate-x-1/2 -translate-y-1/2" />
           <FormBuilder documentType={docType} />
         </main>

@@ -161,7 +161,7 @@ export default function FormBuilder({ documentType }: FormBuilderProps) {
                 required
                 rows={4}
                 placeholder={lang === 'ro' ? field.placeholderRo : field.placeholderEn}
-                className="w-full bg-neutral-900/50 border border-neutral-700 rounded-xl px-4 py-3 text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:border-transparent transition-all"
+                className="theme-input w-full bg-neutral-900/50 border border-neutral-700 rounded-xl px-4 py-3 text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:border-transparent transition-all"
                 onChange={handleChange}
               />
             ) : (
