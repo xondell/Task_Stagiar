@@ -1,91 +1,155 @@
-# Task_Stagiar
-Taskul de proba pentru stagiari, candidati la stagiu. 
+<div align="center">
 
-# Sarcină de probă — Aplicație de tehnoredactare automată a actelor juridice
+# ⚖️ Task Stagiar
 
-## Despre această sarcină
+### Probă tehnică — aplicație pentru tehnoredactarea automată a actelor juridice
 
-Aceasta este o sarcină de probă pentru candidații la stagiu. Scopul este să realizați o
-aplicație care **tehnoredactează automat acte juridice conform normelor de redactare**:
-utilizatorul alege tipul de act, introduce conținutul, iar la final primește **documentul
-complet formatat** — gata de tipărit/depus, nu o simplă listă de pași.
+Un challenge full-stack pentru candidații la stagiu: construiește o aplicație care transformă datele introduse de utilizator într-un **act juridic complet formatat și exportabil**.
 
-### Reguli de organizare a lucrului
-
-- Fiecare candidat **își face propriul proiect** într-un **branch separat, pe care îl creează
-  manual** (de ex. `nume-prenume` sau `stagiar-nume`). Nu lucrați pe `main`/`master`.
-- **Tehnologiile și condițiile le alegeți voi** — folosiți ce vă este comod și ce stăpâniți
-  cel mai bine. Nu există stack impus.
-- Proiectul trebuie să conțină **frontend**, **backend** și **bază de date**.
-- **Aveți voie să adăugați idei proprii** dacă vă vin — funcționalități, îmbunătățiri,
-  optimizări. Inițiativa este apreciată.
-
-### Termen limită
-
-- **Până pe data de 8** (inclusiv).
-- Timp de lucru: **5 zile calendaristice**.
+</div>
 
 ---
 
-## Obiectiv
+## 🎯 Obiectiv
 
-Realizați o aplicație care permite unui jurist să genereze acte juridice **tehnoredactate
-corect, conform normelor de redactare**, pornind de la conținutul introdus. Rezultatul final
-trebuie să fie **documentul complet formatat**, nu o descriere a pașilor.
+Construiește o aplicație în care un jurist poate:
 
-## Fluxul de bază (obligatoriu)
+```text
+alege tipul actului
+        ↓
+introduce conținutul
+        ↓
+genera documentul
+        ↓
+descărca rezultatul final
+```
 
-1. **Selectarea tipului de act** dintr-o listă (minimum 2 tipuri — de exemplu: cerere de
-   chemare în judecată, contract, procură, plângere, decizie, notificare).
-2. **Introducerea conținutului** prin câmpuri structurate (părți, obiect, temei, conținut,
-   dată, semnături) și/sau text liber.
-3. **Generarea automată** a documentului complet tehnoredactat, în care toate regulile de
-   formatare sunt aplicate automat.
-4. **Export** într-un format utilizabil (`.docx` și/sau `.pdf`).
+Rezultatul trebuie să fie un **document real, tehnoredactat**, gata de utilizare — nu o listă de instrucțiuni despre cum ar trebui formatat.
 
-## Norme de tehnoredactare aplicate automat
+## 🧩 Cerințe obligatorii
 
-Aplicația trebuie să respecte un set coerent de reguli (acesta este un baseline tipic —
-aliniați-l la normele oficiale aplicabile):
+### 1. Selectarea tipului de act
 
-- Format pagină **A4**, orientare portret.
-- Margini standard (ex. sus/jos 2 cm, stânga 2,5–3 cm pentru îndosariere, dreapta 1,5 cm).
-- Font uniform (ex. **Times New Roman**, 12 pt text / 14 pt titlu), bold doar la titluri.
-- Interlinie 1,5; aliniere **justify** pentru corpul textului.
-- Indentare prima linie a paragrafelor (ex. 1,25 cm).
-- **Numerotare automată** a articolelor / punctelor / alineatelor.
-- Antet/subsol unde e cazul, cu **numerotarea paginilor**.
-- Bloc de semnătură, dată și loc poziționate corect.
-- Diacritice corecte și spațiere uniformă.
+Minimum **2 tipuri** de documente, de exemplu:
 
-**Esențial:** indiferent de tipul de act sau de textul introdus de utilizator, **documentul
-rezultat trebuie să fie conform normelor**, în mod automat.
+- cerere de chemare în judecată;
+- contract;
+- procură;
+- plângere;
+- decizie;
+- notificare.
 
-## Cerințe opționale / bonus
+### 2. Introducerea datelor
 
-- **Editarea manuală a tehnoredactării** peste rezultatul automat (font, dimensiune,
-  interlinie, margini, aliniere). Aceasta rămâne **opțională** — formatarea de bază trebuie să
-  funcționeze automat.
-- Șabloane reutilizabile și salvarea actelor în baza de date.
-- Validări (câmpuri obligatorii lipsă, date invalide).
-- Mai mult de 2 tipuri de acte.
-- Previzualizare live a documentului.
+Poți folosi:
 
-## Livrabile
+- câmpuri structurate;
+- text liber;
+- sau o combinație între cele două.
 
-- Codul sursă pe **branch-ul propriu**, cu instrucțiuni de rulare (`Explicatie.md`).
-- O demonstrație funcțională (link sau capturi/video).
-- Cel puțin **2 acte-exemplu** generate și exportate.
+Date tipice:
 
-## Criterii de evaluare
+```text
+părți · obiect · temei · conținut · dată · semnături
+```
 
-- Corectitudinea tehnoredactării față de norme (**cel mai important**).
-- Funcționarea întregului flux: selectare tip → introducere text → document final.
-- Prezența și integrarea corectă a celor trei componente: frontend, backend, bază de date.
-- Calitatea codului și claritatea structurii.
-- Experiența de utilizare.
-- Implementarea elementelor opționale și a ideilor proprii (bonus).
+### 3. Generarea automată
+
+Aplicația trebuie să aplice singură regulile de tehnoredactare și să producă documentul final.
+
+### 4. Export
+
+Cel puțin unul dintre formatele:
+
+- `.docx`
+- `.pdf`
+
+## 📐 Baseline de tehnoredactare
+
+Documentul generat trebuie să respecte un set coerent de reguli:
+
+| Element | Cerință |
+|---|---|
+| Pagină | A4, portret |
+| Margini | ~2 cm sus/jos, 2.5–3 cm stânga, ~1.5 cm dreapta |
+| Font | Times New Roman sau echivalent coerent |
+| Corp | ~12 pt |
+| Titlu | ~14 pt |
+| Aliniere | `justify` pentru corp |
+| Interlinie | 1.5 |
+| Paragrafe | indentare coerentă |
+| Structură | numerotare automată unde este cazul |
+| Footer | numerotarea paginilor |
+| Final | dată, loc și bloc de semnătură |
+
+> **Criteriul principal:** indiferent de conținut, rezultatul trebuie să fie formatat automat și consecvent.
+
+## 🏗 Cerințe tehnice
+
+Proiectul trebuie să conțină:
+
+- **frontend**
+- **backend**
+- **bază de date**
+
+Stack-ul tehnologic este la alegerea candidatului.
+
+## 🌟 Bonus
+
+Implementările suplimentare sunt apreciate:
+
+- preview live;
+- validări;
+- șabloane reutilizabile;
+- salvarea actelor în baza de date;
+- editarea manuală a formatării;
+- mai mult de două tipuri de documente;
+- optimizări proprii de UX sau arhitectură.
+
+## 🌿 Reguli Git
+
+Fiecare candidat lucrează pe **propriul branch**, creat manual.
+
+Exemple:
+
+```text
+nume-prenume
+stagiar-nume
+```
+
+Nu se lucrează direct pe `main` / `master`.
+
+## 📦 Livrabile
+
+- codul sursă pe branch-ul candidatului;
+- `Explicatie.md` cu instrucțiuni de rulare;
+- demonstrație funcțională: link, capturi sau video;
+- minimum **2 acte-exemplu** generate și exportate.
+
+## 🧪 Criterii de evaluare
+
+În ordinea importanței:
+
+1. **Corectitudinea tehnoredactării**
+2. Fluxul complet: tip → conținut → document final
+3. Integrarea frontend + backend + bază de date
+4. Calitatea și structura codului
+5. Experiența de utilizare
+6. Bonusurile și inițiativa proprie
+
+## ⏱ Termen
+
+Conform brief-ului proiectului:
+
+- termen: **până pe data de 8, inclusiv**;
+- timp de lucru: **5 zile calendaristice**.
 
 ---
 
-*Succes! Pentru orice neclaritate, întrebați înainte de a începe implementarea.*
+<div align="center">
+
+### Nu construi doar un formular. Construiește un generator de documente utilizabil.
+
+**Succes!**
+
+</div>
